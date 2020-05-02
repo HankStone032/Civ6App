@@ -15,7 +15,6 @@ public class WonderAdapter extends ArrayAdapter<Wonder> {
 
     private final Context context;      // The activity calling this adapter
     private WonderArrayList wonderList;       // The object holding the arraylist of hear rates
-    private String colorString;
 
     /**
      *  @param context The activity calling this adapter
@@ -43,12 +42,14 @@ public class WonderAdapter extends ArrayAdapter<Wonder> {
     public View getView(int position, View convertView, ViewGroup parent) {
         //
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.activity_wonder_list, null);
+        View view = inflater.inflate(R.layout.activity_wonder_list_details, null);
         //
         Wonder wdr = wonderList.getWonders(position);
 
-        TextView tvWonder=(TextView)view.findViewById(R.id.textViewSelect);
+        TextView tvWonder=(TextView)view.findViewById(R.id.textViewWonderName);
+        TextView tvEra=(TextView)view.findViewById(R.id.textViewEra);
         tvWonder.setText(wdr.getWonder());
+        tvEra.setText(wdr.getEra());
 
         return(view);
     }

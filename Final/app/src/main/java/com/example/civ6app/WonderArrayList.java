@@ -13,22 +13,19 @@ import java.util.Random;
 
 public class WonderArrayList extends AppCompatActivity {
     //
-    private MySQLiteHelper dbHelper;
-    private ArrayList<Wonder> wonderArrayList = new ArrayList<Wonder>();
+    private WondersDataSource dataSource;
+    public ArrayList<Wonder> wonderArrayList = new ArrayList<Wonder>();
 
     /**
      * Constructor that initializes the array list
      */
-    public WonderArrayList() {
+    public WonderArrayList(WondersDataSource dataSourceIn) {
+        dataSource = dataSourceIn;
         wonderArrayList = new ArrayList<Wonder>();
     }
 
-
-
-    public void getListOfWonders() {
-        WondersDataSource dbSource = new WondersDataSource(this);
-        dbHelper = new MySQLiteHelper(this);
-        wonderArrayList = new ArrayList<Wonder>(dbHelper.getAllWonders());
+    public void setWonderArrayList() {
+    wonderArrayList = new ArrayList<Wonder>(dataSource.getAllWonders());
     }
     /**
 

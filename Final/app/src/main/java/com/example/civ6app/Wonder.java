@@ -24,6 +24,10 @@ public class Wonder {
 
     public void setEra(String era) { this.era = era;}
 
+    public String getEra() {
+        return era;
+    }
+
     // Will be used by the ArrayAdapter in the ListView
     @Override
     public String toString() {

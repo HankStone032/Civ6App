@@ -1,34 +1,7 @@
 <resources>
     <string name="app_name">Civ6App</string>
     <string name="Alhambra">Alhambra</string>
-    <string name="Apadana">Apadana</string>
-    <string name="Big_Ben">Big Ben</string>
-    <string name="Bolshoi_Theatre">Bolshoi Theatre</string>
-    <string name="Broadway">Broadway</string>
-    <string name="Chichen_Itza">Chichen Itza</string>
-    <string name="Colosseum">Colosseum</string>
-    <string name="Colossus">Colossus</string>
-    <string name="Cristo_Redentor">Cristo Redentor</string>
-    <string name="Eiffel_Tower">Eiffel Tower</string>
-    <string name="Estadio_do_Maracana">Estádio do Maracanã</string>
-    <string name="Forbidden_City">Forbidden City</string>
-    <string name="Great_Library">Great Library</string>
-    <string name="Great_Lighthouse">Great Lighthouse</string>
-    <string name="Great_Zimbabwe">Great Zimbabwe</string>
-    <string name="Hagia_Sophia">Hagia Sophia</string>
-    <string name="Hanging_Gardens">Hanging Gardens</string>
-    <string name="Hermitage">Hermitage</string>
-    <string name="Huey_Teocalli">Huey Teocalli</string>
-    <string name="Mahabodhgi_Temple">Mahabodhi Temple</string>
-    <string name="Mont_St_Michel">Mont St. Michel</string>
-    <string name="Oracle">Oracle</string>
-    <string name="Oxford_University">Oxford University</string>
-    <string name="Petra">Petra</string>
-    <string name="Potala_Palace">Potala Palace</string>
-    <string name="Pyramids">Pyramids</string>
-    <string name="Ruhr_Valley">Ruhr Valley</string>
-    <string name="Stonehenge">Stonehenge</string>
-    <string name="Sydney_Opera_House">Sydney Opera House</string>
-    <string name="Terracotta_Army">Terracotta Army</string>
-    <string name="Venetian_Arsenal">Venetian Arsenal</string>
+    <string name="wonderName">Name:</string>
+    <string name="wonderEra">Era:</string>
+
 </resources>
