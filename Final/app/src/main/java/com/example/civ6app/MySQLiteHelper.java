@@ -2,9 +2,13 @@ package com.example.civ6app;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class servers as a helper class to ope and create a database, Constant variables are created fort table wonders,
@@ -19,13 +23,16 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_WONDERS = "name";                  //The column name of the wonder field
     public static final String COLUMN_ERA = "era";                       //The column era of the wonder field
     public static final String COLUMN_PROVIDES = "provide";              //The column provides of the wonder field
-    public static final String COLUMN_TILE_REQ = "tile";                  //The column tile requirement of the wonder field
-    public static final String COLUMN_TECH_REQ = "tech";                  //The column technology requirement of the wonder field
+    public static final String COLUMN_TILE_REQ = "tile";                 //The column tile requirement of the wonder field
+    public static final String COLUMN_TECH_REQ = "tech";                 //The column technology requirement of the wonder field
     public static final String COLUMN_COST = "cost";                     //The column cost of the wonder field
     public static final String COLUMN_DESCRIPTION = "description";       //The column description of the wonder field
 
     private static final String DATABASE_NAME = "civ6.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
+
+    private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
+            MySQLiteHelper.COLUMN_WONDERS, MySQLiteHelper.COLUMN_ERA, MySQLiteHelper.COLUMN_PROVIDES, MySQLiteHelper.COLUMN_TILE_REQ, MySQLiteHelper.COLUMN_TECH_REQ, MySQLiteHelper.COLUMN_COST, MySQLiteHelper.COLUMN_DESCRIPTION };
 
     // Database creation sql statement
     private static final String DATABASE_CREATE = "create table "
@@ -66,6 +73,32 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                         + newVersion + ", which will destroy all old data");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_WONDERS);
         onCreate(db);
+    }
+
+    public ArrayList<Wonder> getAllWonders() {
+        SQLiteDatabase database = this.getReadableDatabase();
+        ArrayList<Wonder> wonders = new ArrayList<Wonder>();
+
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_WONDERS,
+                allColumns, null, null, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Wonder wonder = cursorToWonder(cursor);
+            wonders.add(wonder);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return wonders;
+    }
+
+    private Wonder cursorToWonder(Cursor cursor) {
+        Wonder wonder = new Wonder();
+        wonder.setId(cursor.getLong(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)));
+        wonder.setWonder(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_WONDERS)));
+        wonder.setEra(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ERA)));
+        return wonder;
     }
 
 }

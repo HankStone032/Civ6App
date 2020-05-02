@@ -25,33 +25,9 @@ public class WondersDataSource {
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
     }
-
     public void close() {
         dbHelper.close();
     }
 
-    public List<Wonder> getAllWonders() {
-        database = dbHelper.getWritableDatabase();
-        List<Wonder> wonders = new ArrayList<Wonder>();
 
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_WONDERS,
-                allColumns, null, null, null, null, null);
-
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            Wonder wonder = cursorToWonder(cursor);
-            wonders.add(wonder);
-            cursor.moveToNext();
-        }
-        // make sure to close the cursor
-        cursor.close();
-        return wonders;
-    }
-
-    private Wonder cursorToWonder(Cursor cursor) {
-        Wonder wonder = new Wonder();
-        wonder.setId(cursor.getLong(0));
-        wonder.setWonder(cursor.getString(1));
-        return wonder;
-    }
 }

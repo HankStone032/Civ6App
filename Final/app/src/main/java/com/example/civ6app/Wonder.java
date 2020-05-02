@@ -3,6 +3,8 @@ package com.example.civ6app;
 public class Wonder {
     private long id;
     private String wonder;
+    private String era;
+
 
     public long getId() {
         return id;
@@ -19,6 +21,8 @@ public class Wonder {
     public void setWonder(String wonder) {
         this.wonder = wonder;
     }
+
+    public void setEra(String era) { this.era = era;}
 
     // Will be used by the ArrayAdapter in the ListView
     @Override

@@ -7,26 +7,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class WonderAdapter extends ArrayAdapter<Wonder> {
 
 
     private final Context context;      // The activity calling this adapter
-    private WonderArrayList hrList;       // The object holding the arraylist of hear rates
+    private WonderArrayList wonderList;       // The object holding the arraylist of hear rates
     private String colorString;
 
     /**
-     *
-     * @param context The activity calling this adapter
+     *  @param context The activity calling this adapter
      * @param rowLayout The xml file defining the layout for one item or row in the list
      * @param dummyTV the ID for a TextView in the row layout. Not used, but needed by the parent object
-     * @param hrList The object holding the arraylist of hear rates
+     * @param wonderList The object holding the arraylist
      */
-    public WonderAdapter(Context context, int rowLayout, int dummyTV, WonderArrayList hrList) {
-        super(context, rowLayout, dummyTV, hrList.getList());
+    public WonderAdapter(Context context, int rowLayout, int dummyTV, WonderArrayList wonderList) {
+        super(context, rowLayout, dummyTV, wonderList.getList());
         this.context = context;
-        this.hrList = hrList;
+        this.wonderList = wonderList;
     }
 
 
@@ -44,14 +44,12 @@ public class WonderAdapter extends ArrayAdapter<Wonder> {
         //
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_wonder_list, null);
-        //get the heart rate we are displaying
-        Wonder hr = hrList.getWonders(position);
+        //
+        Wonder wdr = wonderList.getWonders(position);
 
-        TextView tvWonder=(TextView)view.findViewById(R.id.textViewWonder);
-        tvWonder.setText(hr.getWonder());
+        TextView tvWonder=(TextView)view.findViewById(R.id.textViewSelect);
+        tvWonder.setText(wdr.getWonder());
 
         return(view);
     }
-
-
 }
