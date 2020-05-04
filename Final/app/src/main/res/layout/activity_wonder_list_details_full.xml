@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#838080"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="#838080"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textViewSelect"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="@string/wonderName" />
+            android:background="#838080"
+            android:text="@string/wonderName"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewWonderName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
@@ -32,22 +38,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:background="#838080"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#838080"
             android:fontFamily="serif"
             android:text="@string/wonderEra"
+            android:textStyle="bold"
             tools:text="Era:" />
 
         <TextView
             android:id="@+id/textViewEra"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
@@ -56,22 +67,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:background="#838080"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#838080"
             android:fontFamily="serif"
-            android:text="@string/wonderEra"
-            tools:text="Provide:" />
+            android:text="@string/wonderProvides"
+            android:textStyle="bold"
+            tools:text="Provides:" />
 
         <TextView
             android:id="@+id/textViewProvides"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
@@ -80,22 +96,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:background="#838080"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="64dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#838080"
             android:fontFamily="serif"
-            android:text="@string/wonderEra"
-            tools:text="Tile requirement:" />
+            android:text="@string/wonderTile"
+            android:textStyle="bold"
+            tools:text="Tile:" />
 
         <TextView
             android:id="@+id/textViewTile"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
@@ -104,22 +125,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:background="#838080"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="11dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#838080"
             android:fontFamily="serif"
-            android:text="@string/wonderEra"
-            tools:text="Tech Requirement:" />
+            android:text="@string/wonderTech"
+            android:textStyle="bold"
+            tools:text="Tech:" />
 
         <TextView
             android:id="@+id/textViewTech"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
@@ -128,32 +154,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:background="#838080"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#838080"
             android:fontFamily="serif"
-            android:text="@string/wonderEra"
+            android:text="@string/wonderCost"
+            android:textStyle="bold"
             tools:text="Cost:" />
 
         <TextView
             android:id="@+id/textViewCost"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/textViewDescription"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:fontFamily="serif" />
+        android:background="#838080"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FBCCBD"
+            android:fontFamily="serif"
+            android:paddingTop="5dp" />
+    </LinearLayout>
 
 </LinearLayout>

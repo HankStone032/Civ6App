@@ -1,13 +1,12 @@
 package com.example.civ6app;
 
-import java.util.ArrayList;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
+
+import java.util.ArrayList;
 
 public class WondersDataSource {
 
@@ -50,22 +49,20 @@ public class WondersDataSource {
         Wonder wonder = new Wonder();
         wonder.setWonder(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_WONDERS)));
         wonder.setEra(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ERA)));
-//        wonder.setProvides(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_PROVIDES)));
-//        wonder.setTile(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_TILE_REQ)));
-//        wonder.setTech(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_TECH_REQ)));
-//        wonder.setCost(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_COST)));
-//        wonder.setDescription(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESCRIPTION)));
 
-//        wonder.setDominationFlag(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DOMINATION)));
-//        wonder.setCultureFlag(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_CULTURE)));
-//        wonder.setScienceFlag(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_SCIENCE)));
-//        wonder.setReligionFlag(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_RELIGION)));
-//        wonder.setDiplomaticFlag(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DIPLOMATIC)));
-//        wonder.setScoreFlag(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_SCORE)));
+        return wonder;
+    }
 
-        Log.d("out", "insert" + wonder.getId());
-        Log.d("out", "insert" + wonder.getWonder());
-        Log.d("out", "insert" + wonder.getEra());
+    private Wonder cursorToWonderFull(Cursor cursor) {
+        Wonder wonder = new Wonder();
+        wonder.setWonder(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_WONDERS)));
+        wonder.setEra(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ERA)));
+        wonder.setProvides(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_PROVIDES)));
+        wonder.setTile(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_TILE_REQ)));
+        wonder.setTech(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_TECH_REQ)));
+        wonder.setCost(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_COST)));
+        wonder.setDescription(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESCRIPTION)));
+
         return wonder;
     }
 
@@ -88,22 +85,37 @@ public class WondersDataSource {
                 + ".name WHERE " + MySQLiteHelper.TABLE_WIN_CONDITION + "."
                 + conditionString + " = '1'", null);
 
-
         if (cursor.moveToFirst()) {
             do {
             Wonder wonder = cursorToWonder(cursor);
             wonders.add(wonder);
-        } while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
-//        while (!cursor.isAfterLast()) {
-//            Wonder wonder = cursorToWonder(cursor);
-//            wonders.add(wonder);
-//            cursor.moveToNext();
-//        }
+//
         // make sure to close the cursor
         cursor.close();
         return wonders;
     }
+
+    public Wonder getWonderFullDetail(String selectedWonder) {
+        db = dbHelper.getReadableDatabase();
+        ArrayList<Wonder> wonders = new ArrayList<Wonder>();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM "
+                        + MySQLiteHelper.TABLE_WONDERS
+                        + " WHERE name = '" + selectedWonder + "'", null);
+
+        if (cursor.moveToFirst()) {
+            Wonder wonder = cursorToWonderFull(cursor);
+            cursor.close();
+            return wonder;
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return new Wonder();
+    }
+
 
     public long insertWonder (String name, String era, String provide, String tile, String tech, String cost, String description) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();

@@ -13,17 +13,20 @@
 
         <TextView
             android:id="@+id/textViewSelect"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="@string/wonderName" />
+            android:background="#838080"
+            android:text="@string/wonderName"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewWonderName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
@@ -36,27 +39,23 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#838080"
             android:fontFamily="serif"
             android:text="@string/wonderEra"
+            android:textStyle="bold"
             tools:text="Era:" />
 
         <TextView
             android:id="@+id/textViewEra"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FBCCBD"
             android:fontFamily="serif" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textViewDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:fontFamily="serif" />
 
 </LinearLayout>

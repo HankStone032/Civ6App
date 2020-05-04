@@ -120,10 +120,12 @@ public class Wonder {
         this.wonder = wonder;
     }
 
-    public void setEra(String era) { this.era = era;}
-
     public String getEra() {
         return era;
+    }
+
+    public void setEra(String era) {
+        this.era = era;
     }
 
     // Will be used by the ArrayAdapter in the ListView

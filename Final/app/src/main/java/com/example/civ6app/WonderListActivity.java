@@ -1,15 +1,14 @@
 package com.example.civ6app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WonderListActivity extends AppCompatActivity {
 
@@ -18,6 +17,8 @@ public class WonderListActivity extends AppCompatActivity {
     ListView wonderList;
     TextView tvSelect;
     WonderArrayList wdrArrayList;
+
+    public static final String selectedName = "selectedWonder";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,19 @@ public class WonderListActivity extends AppCompatActivity {
         wdrAdapter = new WonderAdapter(this, R.layout.activity_wonder_list_details, R.id.textViewWonderName, wdrArrayList);
         wdrAdapter.setDropDownViewResource(R.layout.activity_wonder_list_details);
         wonderList.setAdapter(wdrAdapter);
-        Log.d("out", "insert" + wdrArrayList.wonderArrayList.size());
+
+        wonderList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                Wonder wdr = (Wonder) parent.getItemAtPosition(position);
+                Intent detailActIntent = new Intent(parent.getContext(), activity_wonder_list_details_full.class);
+                detailActIntent.putExtra(selectedName, wdr.toString());
+                startActivity(detailActIntent);
+            }
+        });
+
+
         dataSource.close();
     }
 
