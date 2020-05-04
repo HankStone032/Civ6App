@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButtonScience"
         android:layout_width="125dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/science" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButtonCulture"
         android:layout_width="125dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
@@ -50,7 +50,7 @@
         app:srcCompat="@drawable/culture" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imageButtonDomination"
         android:layout_width="125dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
@@ -60,7 +60,7 @@
         app:srcCompat="@drawable/domination" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/imageButtonDiplomacy"
         android:layout_width="125dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
@@ -69,7 +69,7 @@
         app:srcCompat="@drawable/diplomacy" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/imageButtonReligion"
         android:layout_width="125dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
@@ -79,7 +79,7 @@
         app:srcCompat="@drawable/religion" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/imageButtonScore"
         android:layout_width="125dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:text="Diplomacy"
+        android:text="@string/winConditionDiplomacy"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.781"
@@ -118,47 +118,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Domination"
+        android:text="@string/winConditionDomination"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonCulture" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Religion"
+        android:text="@string/winConditionReligion"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonDiplomacy" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Science"
+        android:text="@string/winConditionScience"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonDomination" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Score"
+        android:text="@string/winConditionScore"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.756"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonReligion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

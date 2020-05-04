@@ -14,7 +14,7 @@ public class WonderAdapter extends ArrayAdapter<Wonder> {
 
 
     private final Context context;      // The activity calling this adapter
-    private WonderArrayList wonderList;       // The object holding the arraylist of hear rates
+    private WonderArrayList wonderList;       //
 
     /**
      *  @param context The activity calling this adapter
@@ -27,7 +27,6 @@ public class WonderAdapter extends ArrayAdapter<Wonder> {
         this.context = context;
         this.wonderList = wonderList;
     }
-
 
     /**
      * This is called automatically to display each item in the list.

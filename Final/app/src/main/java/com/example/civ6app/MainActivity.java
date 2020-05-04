@@ -2,49 +2,92 @@ package com.example.civ6app;
 
         import androidx.appcompat.app.AppCompatActivity;
 
-        import android.database.Cursor;
+        import android.content.Intent;
         import android.os.Bundle;
-        import android.util.Log;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.ListView;
-        import android.widget.TextView;
-        import android.widget.Toast;
-
-        import java.util.ArrayList;
-        import java.util.List;
+        import android.view.View;
+        import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
-    MySQLiteHelper db;
 
-    ArrayList<String> listItem;
-    ArrayAdapter<Wonder> wdrAdapter;
-    ListView wonderList;
-    TextView tvSelect;
-    TextView textViewName;
-    WonderArrayList wdrArrayList;
+    ImageButton cultureBtn;
+    ImageButton diplomacyBtn;
+    ImageButton dominationBtn;
+    ImageButton religionBtn;
+    ImageButton scienceBtn;
+    ImageButton scoreBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        db = new MySQLiteHelper(this);
-        listItem = new ArrayList<>();
 
-        WondersDataSource dataSource = new WondersDataSource(this);
+        cultureBtn = (ImageButton) findViewById(R.id.imageButtonCulture);
+        diplomacyBtn = (ImageButton) findViewById(R.id.imageButtonDiplomacy);
+        dominationBtn = (ImageButton) findViewById(R.id.imageButtonDomination);
+        religionBtn = (ImageButton) findViewById(R.id.imageButtonReligion);
+        scienceBtn = (ImageButton) findViewById(R.id.imageButtonScience);
+        scoreBtn = (ImageButton) findViewById(R.id.imageButtonScore);
 
-        //List<Wonder> WonderList = db.getAllWonders();
+        cultureBtn.setOnClickListener(new View.OnClickListener() {
 
-   //     wdrArrayList = new WonderArrayList();
-     //   wdrArrayList.getListOfWonders();
-        wonderList = findViewById(R.id.wonderListView);
+            public void onClick(View v) {
+                // Do something in response to button click
+                Intent i = new Intent(MainActivity.this, WonderListActivity.class);
+                i.putExtra("condition", MySQLiteHelper.COLUMN_CULTURE);
+                startActivity(i);
+            }
+        });
 
-        tvSelect = (TextView) findViewById(R.id.textViewSelect);
+        diplomacyBtn.setOnClickListener(new View.OnClickListener() {
 
-        wdrAdapter = new WonderAdapter(this, R.layout.activity_wonder_list_details, R.id.textViewWonderName, wdrArrayList);
-        wdrAdapter.setDropDownViewResource(R.layout.activity_wonder_list_details);
-        wonderList.setAdapter(wdrAdapter);
-        Log.d("out", "insert" + wdrArrayList.toString());
+            public void onClick(View v) {
+                // Do something in response to button click
+                Intent i = new Intent(MainActivity.this, WonderListActivity.class);
+                i.putExtra("condition", MySQLiteHelper.COLUMN_DIPLOMATIC);
+                startActivity(i);
+            }
+        });
+
+
+        dominationBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                // Do something in response to button click
+                Intent i = new Intent(MainActivity.this, WonderListActivity.class);
+                i.putExtra("condition", MySQLiteHelper.COLUMN_DOMINATION);
+                startActivity(i);
+            }
+        });
+
+        religionBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                // Do something in response to button click
+                Intent i = new Intent(MainActivity.this, WonderListActivity.class);
+                i.putExtra("condition", MySQLiteHelper.COLUMN_RELIGION);
+                startActivity(i);
+            }
+        });
+
+        scienceBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                // Do something in response to button click
+                Intent i = new Intent(MainActivity.this, WonderListActivity.class);
+                i.putExtra("condition", MySQLiteHelper.COLUMN_SCIENCE);
+                startActivity(i);
+            }
+        });
+
+        scoreBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                // Do something in response to button click
+                Intent i = new Intent(MainActivity.this, WonderListActivity.class);
+                i.putExtra("condition", MySQLiteHelper.COLUMN_SCORE);
+                startActivity(i);
+            }
+        });
     }
-
 }

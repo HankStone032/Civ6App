@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">Civ6App</string>
-    <string name="Alhambra">Alhambra</string>
     <string name="wonderName">Name:</string>
     <string name="wonderEra">Era:</string>
-
+    <string name="wonderProvides">Provides:</string>
+    <string name="wonderTile">Tile:</string>
+    <string name="wonderTech">Tech:</string>
+    <string name="wonderCost">Cost:</string>
+    <string name="wonderDescription">Description:</string>
+    <string name="winConditionDiplomacy">Diplomacy</string>
+    <string name="winConditionCulture">Culture</string>
+    <string name="winConditionDomination">Domination</string>
+    <string name="winConditionReligion">Religion</string>
+    <string name="winConditionScience">Science</string>
+    <string name="winConditionScore">Score</string>
 </resources>
